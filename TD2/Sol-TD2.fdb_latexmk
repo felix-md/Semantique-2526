@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1771843662.57879 "/Users/felix/Fac/M1/S2/Semantique/TD/TD2/Sol-TD2.tex" "Sol-TD2.pdf" "Sol-TD2" 1771843663.08297 0
-  "/Users/felix/Fac/M1/S2/Semantique/TD/TD2/Sol-TD2.tex" 1771843662.4576 14408 6cd9d72c224a92e7a0362e4234a2964b ""
+["pdflatex"] 1771931070.2356 "/Users/felix/Fac/M1/S2/Semantique/TD/TD2/Sol-TD2.tex" "Sol-TD2.pdf" "Sol-TD2" 1771931070.78995 0
+  "/Users/felix/Fac/M1/S2/Semantique/TD/TD2/Sol-TD2.tex" 1771931070.10787 15074 90d96d798db8013a16699caa98d41da4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx0600.tfm" 1136768653 3584 ad9fcbc26a2a7bccd6d08b0a5792fbe0 ""
@@ -84,8 +84,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742469605 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1742469599 3345738 4cdfbc418fcb872fabda2464ea409858 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Sol-TD2.aux" 1771843663.00436 381 ef7901207867d32bf5b47786e487bae9 "pdflatex"
-  "Sol-TD2.tex" 1771843662.4576 14408 6cd9d72c224a92e7a0362e4234a2964b ""
+  "Sol-TD2.aux" 1771931070.70782 381 ef7901207867d32bf5b47786e487bae9 "pdflatex"
+  "Sol-TD2.tex" 1771931070.10787 15074 90d96d798db8013a16699caa98d41da4 ""
   (generated)
   "Sol-TD2.aux"
   "Sol-TD2.log"

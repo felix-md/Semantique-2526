@@ -188,7 +188,7 @@ On remarque que $(F^n(\emptyset))_{n \geq 0}$ est croissante ce qu'on démontre 
     \[F^\circ (\emptyset) = \emptyset \subseteq F^1(\emptyset)\]
 \item[Cas n = m + 1]
     \begin{align*}
-        F^{m+1}{\emptyset} &= F(F^m(\emptyset))\\
+        F^{m+1}(\emptyset) &= F(F^m(\emptyset))\\
                            &\subseteq F(F^{m+1}(\emptyset)) && \text{par H.I. et $F$ croissante}\\
                            &= F^{m+2}(\emptyset)\\ 
                            &= F^{n+1}(\emptyset) && \square
@@ -281,6 +281,29 @@ Montrer que $G\mu FG \subseteq \mu GF$
     &\iff G\mu FG \subseteq GF\mu GF\\ 
     &\Longleftarrow \mu FG \subseteq F\mu GF\\
     &\Longleftarrow \text{Lemme A} && \square
+\end{align*}
+
+2. $\mu F^2 = \mu F$. \\ 
+
+Montrer que $\mu F^2$ est un plus petit point préfixe  de $F$\\ 
+
+Montrons que $\mu F^2$ est un point préfixe.\\
+\begin{align*}
+    &F(\mu F^2) \subseteq \mu F^2 \\
+    \iff &F(\mu F^2) \subseteq F^2(\mu F^2)\\ 
+    \Leftarrow & \mu F^2 \subseteq F(\mu F^2) \\ 
+    \Leftarrow & F^3(\mu F^2) \subseteq F(\mu F^2)\\
+    \iff F^3(\mu F^2) \subseteq F^3(\mu F^2) && \square
+\end{align*}
+
+Montrons que c'est le plus petit.\\ 
+
+Soit $R$ tq $F(R) \subseteq R$
+\begin{align*}
+    &\mu F^2 \subseteq R\\ 
+    \Leftarrow & F^2(R) \subseteq R\\ 
+    \Leftarrow & F^2(R) \subseteq F(R)\\ 
+    \Leftarrow & F(R) \subseteq R && \square
 \end{align*}
 
 
