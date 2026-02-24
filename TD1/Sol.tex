@@ -1,0 +1,564 @@
+\documentclass[12pt]{article}
+
+\usepackage[top=2cm,bottom=2cm,left=2cm,
+right=2cm]{geometry}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{subcaption}
+
+\usepackage{listings}
+
+\usepackage{listings}
+\usepackage{dsfont}
+\usepackage{bbm}
+\captionsetup[subfigure]{justification=centering}
+\usepackage{listings}
+\usepackage{xcolor} % Pour définir des couleurs personnalisées
+
+% Configuration simple pour avoir un look sympa
+\lstset{
+  language=Caml,                % "Caml" est le nom pour OCaml dans listings
+  basicstyle=\ttfamily\small,   % Police monospace
+  keywordstyle=\color{blue},    % Mots-clés en bleu
+  commentstyle=\color{gray},    % Commentaires en gris
+  stringstyle=\color{red},      % Strings en rouge
+  breaklines=true,              % Retour à la ligne automatique
+  showstringspaces=false
+}
+
+\DeclareMathAlphabet{\mymathbb}{U}{BOONDOX-ds}{m}{n}
+
+
+\begin{document}
+\def\tobar{\mathrel{\mkern3mu \vcenter{\hbox{$\scriptscriptstyle\boldsymbol{+}$}}\mkern-12mu{\to}}}
+
+\title{\textbf{TD1: Correction test }}
+\author{Félix Martins-Ducasse}
+\date{}
+\maketitle
+
+\section{Relations et fonctions}
+\subsection*{Exercice 1.1 (*)}
+
+\subsection*{Énoncé}
+Donner un exemple de relation entre ensembles finis qui soit uniquement surjective; uniquement injective; uniquement entière; uniquement déterministe. Donner un exemple de relation qui soit fonctionnelle mais pas co-fonctionnelle, puis co-fonctionnelle mais pas fonctionnelle.
+
+\subsection*{Correction}
+
+\begin{figure}[htbp]
+\begin{subfigure}[b]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+
+    % Dessin des patates (ellipses)
+    \draw (0,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$A$};
+    \draw (4,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$B$};
+    % Points dans l'ensemble A
+    \coordinate (a1) at (-0.3,0.5);
+    \coordinate (a2) at (0.3,0);
+    \coordinate (a3) at (0,-0.7);
+    
+    % Points dans l'ensemble B
+    \coordinate (b1) at (3.7,0.5);
+    \coordinate (b2) at (4.3,0);
+    \coordinate (b3) at (4,-0.7);
+    
+    % Dessiner les points
+    \filldraw (a1) circle (2pt) node[left] {$a_1$};
+    \filldraw (a2) circle (2pt) node[left] {$a_2$};
+    \filldraw (a3) circle (2pt) node[left] {$a_3$};
+    
+    \filldraw (b1) circle (2pt) node[right] {$b_1$};
+    \filldraw (b2) circle (2pt) node[right] {$b_2$};
+    \filldraw (b3) circle (2pt) node[right] {$b_3$};
+
+    % Les flèches (Relation injective)
+    \draw[-] (a1) -- (b1);
+    \draw[-] (a1) -- (b2);
+    \draw[-] (a1) -- (b3);
+    \draw[-] (a3) -- (b1);
+\end{tikzpicture}
+\caption*{Uniquement Surjective}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+
+    % Dessin des patates (ellipses)
+    \draw (0,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$A$};
+    \draw (4,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$B$};
+    % Points dans l'ensemble A
+    \coordinate (a1) at (-0.3,0.5);
+    \coordinate (a2) at (0.3,0);
+    \coordinate (a3) at (0,-0.7);
+    
+    % Points dans l'ensemble B
+    \coordinate (b1) at (3.7,0.5);
+    \coordinate (b2) at (4.3,0);
+    \coordinate (b3) at (4,-0.7);
+    
+    % Dessiner les points
+    \filldraw (a1) circle (2pt) node[left] {$a_1$};
+    \filldraw (a2) circle (2pt) node[left] {$a_2$};
+    \filldraw (a3) circle (2pt) node[left] {$a_3$};
+    
+    \filldraw (b1) circle (2pt) node[right] {$b_1$};
+    \filldraw (b2) circle (2pt) node[right] {$b_2$};
+    \filldraw (b3) circle (2pt) node[right] {$b_3$};
+
+    % Les flèches (Relation injective)
+    \draw[-] (a1) -- (b1);
+    \draw[-] (a1) -- (b2);
+\end{tikzpicture}
+\caption*{Uniquement Injective}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+
+    % Dessin des patates (ellipses)
+    \draw (0,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$A$};
+    \draw (4,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$B$};
+    % Points dans l'ensemble A
+    \coordinate (a1) at (-0.3,0.5);
+    \coordinate (a2) at (0.3,0);
+    \coordinate (a3) at (0,-0.7);
+    
+    % Points dans l'ensemble B
+    \coordinate (b1) at (3.7,0.5);
+    \coordinate (b2) at (4.3,0);
+    \coordinate (b3) at (4,-0.7);
+    
+    % Dessiner les points
+    \filldraw (a1) circle (2pt) node[left] {$a_1$};
+    \filldraw (a2) circle (2pt) node[left] {$a_2$};
+    \filldraw (a3) circle (2pt) node[left] {$a_3$};
+    
+    \filldraw (b1) circle (2pt) node[right] {$b_1$};
+    \filldraw (b2) circle (2pt) node[right] {$b_2$};
+    \filldraw (b3) circle (2pt) node[right] {$b_3$};
+
+    % Les flèches (Relation injective)
+    \draw[-] (a1) -- (b1);
+    \draw[-] (b1) -- (a2);
+    \draw[-] (b1) -- (a3);
+    \draw[-] (b3) -- (a1);
+\end{tikzpicture}
+\caption*{Uniquement Entière}
+\end{subfigure}
+\vspace{1cm}
+
+\begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+
+    % Dessin des patates (ellipses)
+    \draw (0,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$A$};
+    \draw (4,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$B$};
+    % Points dans l'ensemble A
+    \coordinate (a1) at (-0.3,0.5);
+    \coordinate (a2) at (0.3,0);
+    \coordinate (a3) at (0,-0.7);
+    
+    % Points dans l'ensemble B
+    \coordinate (b1) at (3.7,0.5);
+    \coordinate (b2) at (4.3,0);
+    \coordinate (b3) at (4,-0.7);
+    
+    % Dessiner les points
+    \filldraw (a1) circle (2pt) node[left] {$a_1$};
+    \filldraw (a2) circle (2pt) node[left] {$a_2$};
+    \filldraw (a3) circle (2pt) node[left] {$a_3$};
+    
+    \filldraw (b1) circle (2pt) node[right] {$b_1$};
+    \filldraw (b2) circle (2pt) node[right] {$b_2$};
+    \filldraw (b3) circle (2pt) node[right] {$b_3$};
+
+    % Les flèches (Relation injective)
+    \draw[-] (b1) -- (a1);
+    \draw[-] (b1) -- (a2);
+\end{tikzpicture}
+\caption*{Uniquement Déterministe}
+\end{subfigure}
+\hfill
+\vspace{1cm}
+\begin{subfigure}[t]{0.3\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+
+    % Dessin des patates (ellipses)
+    \draw (0,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$A$};
+    \draw (4,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$B$};
+    % Points dans l'ensemble A
+    \coordinate (a1) at (-0.3,0.5);
+    \coordinate (a2) at (0.3,0);
+    
+    % Points dans l'ensemble B
+    \coordinate (b1) at (3.7,0.5);
+    \coordinate (b2) at (4.3,0);
+    
+    % Dessiner les points
+    \filldraw (a1) circle (2pt) node[left] {$a_1$};
+    \filldraw (a2) circle (2pt) node[left] {$a_2$};
+    
+    \filldraw (b1) circle (2pt) node[right] {$b_1$};
+    \filldraw (b2) circle (2pt) node[right] {$b_2$};
+
+    % Les flèches (Relation injective)
+    \draw[-] (a1) -- (b2);
+    \draw[-] (a2) -- (b2);
+\end{tikzpicture}
+\caption*{Fonctionnelle mais pas co-fonctionnelle}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.3\textwidth}
+    \centering
+\begin{tikzpicture}[scale=0.8]
+
+    % Dessin des patates (ellipses)
+    \draw (0,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$A$};
+    \draw (4,0) ellipse (1.3cm and 1.3cm) node[below=1cm] {$B$};
+    % Points dans l'ensemble A
+    \coordinate (a1) at (-0.3,0.5);
+    \coordinate (a2) at (0.3,0);
+    
+    % Points dans l'ensemble B
+    \coordinate (b1) at (3.7,0.5);
+    \coordinate (b2) at (4.3,0);
+    
+    % Dessiner les points
+    \filldraw (a1) circle (2pt) node[left] {$a_1$};
+    \filldraw (a2) circle (2pt) node[left] {$a_2$};
+    
+    \filldraw (b1) circle (2pt) node[right] {$b_1$};
+    \filldraw (b2) circle (2pt) node[right] {$b_2$};
+
+    % Les flèches (Relation injective)
+    \draw[-] (a2) -- (b1);
+    \draw[-] (a2) -- (b2);
+\end{tikzpicture}
+\caption*{Co-fonctionnelle mais pas fonctionnelle}
+\end{subfigure}
+\hfill
+\end{figure}
+
+
+\subsection*{Exercice 1.2 (*)}
+\subsection*{Énoncé}
+Soient $R$ et $S$ des relations de même domaine et codomaine telles que $R$ est entière et $S$ déterministe. Démontrer que si $R \subseteq S$ alors $R = S$.
+
+\subsection*{Correction}
+Il suffit de montrer que $S \subseteq R$ par antisymétrie, on a 
+\newline
+
+\color{red} (1)\color{black}$\quad Id \subseteq R ; R ^\circ$ Car $R$ est entière
+
+\color{blue} (2)\color{black}$\quad S^\circ ; S \subseteq Id$ Car $S$ est déterministe
+
+Donc,
+
+
+\begin{align*}
+    R \subseteq S
+    &\implies S^\circ;R;R^\circ \subseteq S^\circ;S;R^\circ \\
+    &\implies S^\circ;Id^{\color{red}(1)} \subseteq Id^{\color{blue}(2)};R^\circ \\
+    &\iff S^\circ \subseteq R^\circ \\
+    &\iff S^{\circ\circ} \subseteq R^{\circ\circ} \\
+    &\iff S \subseteq R \quad \square
+\end{align*}
+
+
+\subsection*{Exercice 1.3 (*)}
+\subsection*{Énoncé}
+Soient $R$ : $A \tobar B$ et $S$ : $A \tobar C$ et $T$ : $C \tobar B$ des relations. L'extension $S \rhd R$ de $R$ le long de $S$ et le relèvement $R \lhd T$ de $R$ le long de $T$ satisfont 
+
+\begin{align*}
+    T \subseteq S \rhd R \iff S;T \subseteq R \iff S \subseteq R \lhd T\\
+\end{align*}
+
+Utiliser ce résultat, et ce résultat uniquement, pour démontrer les inclusions ci-dessous.
+
+$$ S;S \rhd R \subseteq R \qquad R \lhd T;T \subseteq R \qquad T\subseteq S \rhd (S;T) \qquad S \subseteq (S;T) \lhd T$$
+
+
+\subsection*{Correction}
+
+\begin{align*}
+    S;S \rhd R \subseteq R
+    &\iff S \rhd R \subseteq S \lhd R \\ 
+    R \lhd T;T \subseteq R
+    &\iff R \lhd T \subseteq R \lhd T \\
+    T\subseteq S \rhd (S;T)
+    &\iff S;T \subseteq S;T \\
+    S \subseteq (S;T) \lhd T
+    &\iff S;T \subseteq S;T
+\end{align*}
+
+
+
+\section{Constructions Ensemblistes}
+
+\subsection*{Exercice 2.1 (*)}
+
+\subsection*{Énoncé}
+Soient $R : A \tobar B$ et $S_1, S_2 : B \tobar C$ des relations. Donner un contre-exemple à l'inclusion $(R;S_1) \cap (R;S_2) \subseteq R; (S_1\cap S_2)$
+
+\subsection*{Correction}
+
+Montrons que l'autre sens de l'inclusion est vérifié, soit
+\vspace{0.5cm}
+
+$$R : A \tobar B \qquad S_1,S_2 : B \tobar C$$
+
+\vspace{0.5cm}
+
+Preuve :
+
+\begin{align*}
+S_1 \cap S_2 \subseteq S_i   \quad \forall i \in \{1,2\}
+&\implies R; (S_1 \cap S_2) \subseteq R;S_i \quad \forall i \in \{1,2\} \\
+&\implies R; (S_1 \cap S_2) \subseteq (R;S_1) \cap (R;S_2) \quad \square
+\end{align*}
+
+
+Contre exemple pour l'autre sens de l'inclusion :
+
+
+Soit $A = \{a\}$, $B = \{b_1,b_2\}$ et $C = \{c\}$, et les relations suivantes :
+
+\begin{align*}
+    R &= \{(a,b_1),(a,b_2)\} \\
+    S_1 &= \{(b_1,c)\} \\
+    S_2 &= \{(b_2,c)\}
+\end{align*}
+
+Alors, on a
+\begin{align*}
+    (R;S_1) \cap (R;S_2) &= \{(a,c)\} \\
+    R; (S_1 \cap S_2) &= \emptyset
+\end{align*}
+
+Donc, 
+\begin{align*}
+    (R;S_1) \cap (R;S_2) \not\subseteq R; (S_1\cap S_2) \quad \square 
+\end{align*}
+
+\subsection{Exercice 2.2 (*)}
+\subsection*{Énoncé}
+Écrire, dans un langage fonctionnel de votre choix muni de types fonctions, produits et sommes, les biejctions canoniques de la figure ci-dessous. 
+
+\begin{align*}
+    (A + B) + C &\cong A + (B + C) \tag{1} \\
+    A + B &\cong B + A \tag{2} \\
+    A + \mymathbb{0} &\cong A \tag{3} \\
+    (A \times B) \times C &\cong A \times (B \times C) \tag{4} \\
+    A \times B &\cong B \times A \tag{5} \\
+    A \times \mymathbb{1} &\cong A \tag{6} \\
+    A \times (B + C) &\cong A \times B + A \times C \tag{7} \\
+    A \times \mymathbb{0} &\cong \mymathbb{0} \tag{8} \\
+    C^{\mymathbb{1}} &\cong C \tag{9} \\
+    \mymathbb{1}^C &\cong \mymathbb{1} \tag{10} \\
+    (A \times B)^C &\cong A^C \times B^C \tag{11} \\
+    C^{\mymathbb{0}} &\cong \mymathbb{1} \tag{12} \\
+    C^{A+B} &\cong C^A \times C^B \tag{13} \\
+    \mymathbb{0}^C &\cong \mymathbb{0} \text{ ssi } C \neq \mymathbb{0} \tag{14}
+\end{align*}
+
+\begin{lstlisting}
+module Empty = struct
+  type t = |
+
+  let exfalso : 'a. t -> 'a =
+    fun x ->
+    match x with
+    | _ -> .
+end
+
+open Either
+
+(* (A + B) + C = A + (B + C) *)
+
+let bij1fwd : 'a 'b 'c.
+              (('a, 'b) Either.t, 'c) Either.t ->
+              ('a, ('b, 'c) Either.t) Either.t =
+  function
+  | Left (Left y) -> Left y
+  | Left (Right y) -> Right (Left y)
+  | Right y -> Right (Right y)
+
+let bij1bwd : 'a 'b 'c.
+              ('a, ('b, 'c) Either.t) Either.t ->
+              (('a, 'b) Either.t, 'c) Either.t =
+  function
+  | Left x -> Left (Left x)
+  | Right (Left x) -> Left (Right x)
+  | Right (Right x) -> Right x
+
+(* A + B = B + A *)
+
+let bij2fwd : 'a 'b. ('a, 'b) Either.t -> ('b, 'a) Either.t =
+  function
+  | Left x -> Right x
+  | Right x -> Left x
+
+let bij2bwd : 'a 'b. ('b, 'a) Either.t -> ('a, 'b) Either.t =
+  bij2fwd
+
+(* A + 0 = A *)
+
+let bij3fwd : 'a. ('a, Empty.t) Either.t -> 'a =
+  function
+  | Left x -> x
+  | Right _ -> .
+
+let bij3bwd : 'a. 'a -> ('a, Empty.t) Either.t =
+  fun x -> Left x
+
+(* (A * B) * C = A * (B * C) *)
+
+let bij4fwd : 'a 'b 'c.
+              ('a * 'b) * 'c
+              ->
+              'a * ('b * 'c)
+  = fun ((x, y), z) -> (x, (y, z))
+
+let bij4bwd : 'a 'b 'c.
+              'a * ('b * 'c)
+              ->
+              ('a * 'b) * 'c
+  = fun (x, (y, z)) -> ((x, y), z)
+
+(* A * B = B * A *)
+
+let bij5fwd : 'a 'b. ('a * 'b) -> ('b * 'a) =
+  fun (x, y) -> (y, x)
+
+let bij5bwd : 'a 'b. ('b * 'a) -> ('a * 'b) =
+  bij5fwd
+
+(* A * 1 = A *)
+
+let bij6fwd : 'a. 'a * unit -> 'a =
+  fun (x, ()) -> x
+
+let bij6bwd : 'a. 'a -> 'a * unit =
+  fun x -> (x, ())
+
+(* A * (B + C) = A * B + A * C *)
+
+let bij7fwd : 'a 'b.
+              'a * ('b, 'c) Either.t ->
+              ('a * 'b, 'a * 'c) Either.t =
+  function
+  | (x, Left y) -> Left (x, y)
+  | (x, Right y) -> Right (x, y)
+
+let bij7bwd : 'a 'b.
+              ('a * 'b, 'a * 'c) Either.t ->
+              'a * ('b, 'c) Either.t =
+  function
+  | Left (x, y) -> (x, Left y)
+  | Right (x, y) -> (x, Right y)
+
+(* A * 0 = 0 *)
+
+let bij8fwd : 'a. ('a * Empty.t) -> Empty.t =
+  (* fun (_, x) -> x *)
+  function
+  | _ -> .
+
+let bij8bwd : 'a. Empty.t -> ('a * Empty.t) =
+  function
+  | _ -> .
+
+(* C^1 = C *)
+
+let bij9fwd : 'c. (unit -> 'c) -> 'c =
+  fun f -> f ()
+
+let bij9bwd : 'c. 'c -> (unit -> 'c) =
+  fun x -> fun () -> x
+
+(* 1^C = 1 *)
+
+let bij10fwd : 'c. ('c -> unit) -> unit =
+  fun _ -> ()
+
+let bij10bwd : 'c. unit -> ('c -> unit) =
+  fun () -> fun _ -> ()
+
+(* (A * B)^C = A^C * B^C *)
+
+let bij11fwd : 'a 'b 'c.
+               ('c -> ('a * 'b))
+               ->
+               ('c -> 'a) * ('c -> 'b)
+  = fun f -> ((fun x -> fst (f x)), (fun x -> snd (f x)))
+
+let bij11bwd : 'a 'b 'c.
+               ('c -> 'a) * ('c -> 'b)
+               ->
+               ('c -> ('a * 'b))
+  = fun (f, g) -> fun x -> (f x, g x)
+
+(* C^0 = 1 *)
+
+let bij12fwd : 'c.
+               (Empty.t -> 'c)
+               ->
+               unit
+  = fun _ -> ()
+
+let bij12fwd : 'c.
+               unit
+               ->
+               (Empty.t -> 'c)
+  = fun () -> (function _ -> .)
+
+(* C^(A + B) = C^A * C^B *)
+
+let bij13fwd : 'a 'b 'c.
+               (('a, 'b) Either.t -> 'c)
+               ->
+               ('a -> 'c) * ('b -> 'c)
+  = fun f -> ((fun x -> f (Left x)),
+              (fun x -> f (Right x)))
+
+let bij13bwd : 'a 'b 'c.
+               ('a -> 'c) * ('b -> 'c)
+               ->
+               (('a, 'b) Either.t -> 'c)
+  = fun (f, g) -> function Left x -> f x
+                         | Right x -> g x
+
+(* 0^C = 0     si C n'est pas vide  *)
+
+let bij14fwd : 'c. 'c ->
+               ('c -> Empty.t)
+               ->
+               Empty.t
+  = fun x f -> f x
+
+let bij14fwd : 'c. 'c ->
+                 Empty.t
+               ->
+               ('c -> Empty.t)
+  = fun x y -> match y with _ -> .
+
+
+let f = fun x -> x + 1
+
+
+
+
+
+\end{lstlisting}
+
+\end{document}
+
