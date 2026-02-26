@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage[top=2cm,bottom=2cm,left=2cm,%
+right=2cm]{geometry}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
+
+
+
+\begin{document}
+\def\tobar{\mathrel{\mkern3mu \vcenter{\hbox{$\scriptscriptstyle+$}}\mkern-12mu{\to}}}
+
+
+\title{\textbf{TD3: Correction }}
+\author{Félix Martins-Ducasse}
+\date{}
+\maketitle
+
+\section*{Ensembles ordonnés}
+\textbf{Rappels.}   Une relation de \textit{préodre (R)} sur un ensemble $A$ est une endorelation de $A$ qui est réflexive  $(Id \subseteq R)$ et transitive $(R;R \subseteq R)$. Une relation d'\textit{ordre} est une relation de préordre $R$ qui est antisymétrique $(R \cap R^\circ = Id)$. Un \textit{ensemble préordonné} (resp. \textit{ordonné}) est un ensemble munie d'une relation de préordre (resp. d'ordre).
+
+Si $(A,\leq)$ est un ensemble pré ordonné et $P$ une partie de $A$, un \textit{majorant de } $P$ est un élément $x$ de $A$ tel que tous les éléments $x'$ de $P$ vérifient $x'\leq x$. Une \textit{borne supérieure} de $P$. aussi appelé \textit{supremum de } $P$, est un majorant $x_0$ de $P$ tel que pour tout majorant $x$ de $P$ on ait $x_0 \leq x$. Une borne inférieure de $P$ est une borne supérieure de $P$ dans l'ensemble préordonné $(A, \leq^\circ)$. Si $\leq$ est une relation d'ordre, la borne supérieure (resp. inférieure) d'une partie $P$ de $A$ est nécessairement unique lorsqu'elle existe, et on la note alors $\bigvee P$ (resp. $ \bigwedge  P$ ).
+
+Soient $(A, \leq_A)$ et $(B. \leq_B)$ deux ensembles préordonnés. Une fonction $f$ de $A$ dans $B$ est \textit{croissante}  lorsque pour tout $x\leq_A x'$ on a $f(x) \leq_B f(x')$.
+
+\section*{Exercice 1.1 (**)}
+
+\subsection*{Énoncé} 
+
+Dans cet exercice, on démontre un théorème de point fixe essentiel,
+dû à Stephen Cole Kleene. Dans ce qui suit, $A$ désigne un ensemble ordonné dont on
+note la relation d’ordre $\leq$.  
+
+\begin{enumerate}
+    \item Une partie $P$ de $A$ est dite \textit{filtrante} si tout sous-ensemble fini $Q$ de $P$ admet un majorant dans $P$. Montrer qu'une partie $P$ de $A$ est filtrante si et seulement si elle est non vide et satisfait la condition 
+        \[
+        \forall x,y \in P, \exists z \in P, x\leq z \and y \leq z.\]
+    \item Montrer qu'une partie finie $P$ de $A$ est filtrante si et seulement si elle a un plus grand élément.
+    \item Montrer qu'une partie $P$ de $A$ qui est non vide et totalement ordonnée est nécessairement filtrante. 
+    \item Un ensemble ordonnée est dit \textit{inductif} si toutes ses parties filtrantes ont un supremum. Pour chacun des ensemble ordonnés ci-dessous, déterminer s'il est inductif. Le cas échéant. le démontrer; sinon, donner une partie filtrante dépourvue de supremum.
+\end{enumerate}
+
+
+\subsubsection*{Correction}
+
+On utilisera les notations suivante:
+\begin{align*}
+X\subseteq_{Fini} Y &: X \text{partie finie de } Y \\
+    X \subseteq^* Y &: X \text{partie non vide de } Y \\ 
+    X \leq x & : x \text{ est un majorant de } X
+\end{align*}
+
+\begin{enumerate}
+    \item Soit $(A,\leq)$ et $P \subseteq A$, $P$ filtrante $\overset{def}{\iff} \forall Q \subseteq_{Fini} P, \exists x \in P, Q \leq x$\\ 
+
+        Mq $P$ filtrante $\iff 
+        \begin{cases}
+        \exists x,\quad x\in P\\
+        \forall x,y \in P \quad \exists z \in P, x \leq z \text{ et } y\leq z \hspace{2cm} (A)
+        
+        \end{cases}$\\ 
+
+	\textbf{Preuve} : $\Rightarrow $ Supposons P filtrante \\ 
+Clairement, $P$ non vide car la partie $\emptyset$ de $P$ a un majorant. Soit $x,y \in P$. La partie $\{x,y\} \subseteq_{Fini} P$ a un majorant qui fournit le $z$ attendu.
+
+
+	\textbf{Preuve} : $\Leftarrow $ Soit $P$ non vide et satisfaisant (A). On va montrer que tout $Q \subseteq_{Fini} P$ a un majorant dans $P$. On procède par induction sur le nombre d'elt de $Q$. 
+
+\begin{description}
+    \item[Cas $Q = \emptyset $]: \\
+        Un majorant de $A$ est n'importe quel elt de $P$ et il en existe au moins un car $P$ non vide. 
+    \item[Cas $Q = Q' \uplus \{x\} \leq z $ ]:\\ 
+        Par hypothèse d'induction, on a $z_0$ majorant de $Q'$\\ 
+        Par la propriété (A) on obtiens $z \in P, z_0 \leq z $ et $x \leq z$\\ 
+        Donc $Q = Q'\uplus \{x\} \leq z$
+\end{description}
+
+Nous avons donc que $P$ filtrante $\iff$ (1) $\qquad \square$\\ 
+
+
+
+\item Soit $P \subseteq_{Fini} A$, Montrer que $P$ filtrante ssi $P$ a un plus grand élément 
+
+	\textbf{Preuve}: $\Leftarrow $ Supposons que $P$ a un plus grand élément :
+
+ c'est-à-dire :  \textcolor{gray}{$\exists x \in P \quad \forall x'\in P, x'\leq x$}
+
+Donc $P$ est non vide, de plus, pour $x_1,x_2 \in P$ on a $x_1 \leq x_2$ et $x_2 \leq x$ donc $P$ satisfait (A), donc $P$ est filtrante. 
+
+
+	\textbf{Preuve} : $\Rightarrow $ Supposons $P$ finie et filtrante. 
+
+Montrons que $P$ a un plus grand élément par induction sur le cardinal de $P$ :
+\begin{description}
+    \item[Cas $P = \emptyset $]: 
+
+        Absurde car $P \ne \emptyset $
+    \item[Cas $P$ a $n+1$ éléments]:
+
+        On choisit $x \in P$ et on pose $P'= P/\{x\}$ 
+
+        Donc $P'$ a $m$ éléments et, par hypothèse d'induction, a un plus grand élément $x_0 \in P'$
+
+        La propriété (A) donne $x'\in P$ tel que $x_0 \leq x'$ et $x\leq x'$
+
+
+Donc $x'$ est un majorant de $P$ qui appartient à P, c'est donc le plus grand élément 
+
+de P.
+\end{description}
+
+\textbf{Remarque} : Le deuxième sens de la preuve peut être fait juste avec la définition trouvé dans la question 1.
+
+        
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\end{document}
+

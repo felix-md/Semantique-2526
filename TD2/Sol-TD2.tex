@@ -16,13 +16,10 @@ right=2cm]{geometry}
 \def\tobar{\mathrel{\mkern3mu \vcenter{\hbox{$\scriptscriptstyle+$}}\mkern-12mu{\to}}}
 
 
-
-
 \title{\textbf{TD2: Correction}}
 \author{Félix Martins-Ducasse}
 \date{}
 \maketitle
-
 \section{Relations définies (co)inductivement et opérateurs de clôture}\textbf{Rappels et notation.} Dans ce qui suit, $R$, $S$ et $T$ désignent des endorelations d'un ensemble $A$ quelconque, et $F$ et $G$ désignent des endofonctions croissantes de $\textbf{Rel}(A,A)$. On rappelle que $F^\mu$  est la fonction qui envoie $R$ dans $\mu X. R \cup F(X)$, tandis que $\mu G$ est la relation $\mu X.G(X)$.
 
 La notation $R^n$ désigne l'endorelation de $A$ définie par récurrence sur n par $R^0 = Id_A$ et $R^{n+1} = R^n;R$. La notation $F^n$ désigne l'endofonction croissante définie par récurrence sur $n$ par $F^0(X) = X$ et $F^{n+1}(X) = F(F^n(X))$
@@ -53,7 +50,7 @@ On a
 
 \subsection*{Exercice 1.2 (*)}
 \subsubsection*{Énoncé}
-Comme nous l'avons vu en cours. l'utilisation des plus petis points préfixes permet de définir de façon uniforme la clôture d'une relation sous une certaine propriété (transitivité, reflexivité, symétrie, etc.). Cependant, il est possible dans certains cas de définir ces clôtures d'une façon plus maniable. Chacune des équations ci-dessous propose une telle définition; démontrer-les.
+Comme nous l'avons vu en cours. L'utilisation des plus petits points préfixes permet de définir de façon uniforme la clôture d'une relation sous une certaine propriété (transitivité, réflexivité, symétrie, etc.). Cependant, il est possible dans certains cas de définir ces clôtures d'une façon plus maniable. Chacune des équations ci-dessous propose une telle définition; démontrer-les.
 
 \begin{align}
     R^? &:= \mu X.R \cup Id_A = R \cup Id_A\\ 
@@ -443,12 +440,22 @@ $$F^\mu(R) = R \cup F(F^\mu(R)) \supseteq R \quad \square$$
     \Leftarrow &F(F^\mu(R)) \subseteq F^\mu(R)\\ 
     \iff &F(F^\mu(R)) \subseteq R \cup F(F^\mu (R)) && \square
 \end{align*}
-
+et voila 
 (1) On démontre ça car : 
 \begin{mathpar}
 \inferrule[]
     { F(R) \subseteq R }
     { \mu F \subseteq R} 
 \end{mathpar}
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
