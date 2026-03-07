@@ -8,7 +8,7 @@ right=2cm]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[dvipsnames]{xcolor}
-
+\usepackage{mathrsfs}
 
 
 \begin{document}
@@ -42,6 +42,35 @@ note la relation d’ordre $\leq$.
     \item Montrer qu'une partie finie $P$ de $A$ est filtrante si et seulement si elle a un plus grand élément.
     \item Montrer qu'une partie $P$ de $A$ qui est non vide et totalement ordonnée est nécessairement filtrante. 
     \item Un ensemble ordonnée est dit \textit{inductif} si toutes ses parties filtrantes ont un supremum. Pour chacun des ensemble ordonnés ci-dessous, déterminer s'il est inductif. Le cas échéant. le démontrer; sinon, donner une partie filtrante dépourvue de supremum.
+
+        \begin{enumerate}
+            \item Les parties $\mathcal{P}(X)$ d'un ensemble quelconque $X$
+            \item L'ensemble \textbf{Rel}($X,X$) des endorelationsd'un ensemble $X$ ordonnés par l'inclusion.
+            \item L'ensemble vide. 
+            \item Un ensemble ordonné fini quelconque. 
+            \item L'ensemble $\omega$ des entiers naturels muni de l'ordre usuel. 
+            \item L'ensemble $\mathbb{Q}^\infty$ des rationnels étndu avec un éléments maximal $\infty$ muni de l'ordre usuel.
+            \item Un ensemble totalement ordonné quelconque.
+            \item L'ensemble $\mathbb{N}_{\bot}$ := $\mathbb{N} +  \{\bot\}$ muni de la relation d'ordre  telle que $\bot$ soit minimal et les entiers incomparables  deux à deux.
+            \item L'ensemble $X^\infty = X^*  \cup X ^{\omega}$ des séquences de longueur au plus  dénombrable d'éléments de $X$, muni de la relation d'ordre préfixe définie par  
+                \[
+                    xs \leq yz \iff  \exists zs \in X^\infty , xs \cdot zs = ys
+                \]
+                où  $xs \cdot zs$ désigne la concaténation de $xs$ et $zs$, qui est par définition égale à $xs$ si $xs$ est une séquence  de longueur infinie.
+        \end{enumerate}
+    \item Soit $f : A \rightarrow B $ une fonction  croissante de $A$  dans un ensemble ordonné $B$. Soit $P$  une partie filtrante  de $A$. Montrer que l'image  directe de $P$  par $f$, c'est-à-dire $f_*(P) := \{f(x)| x \in P\}$, est une partie filtrante  de $B$.
+    \item Soient $A$ et $B$ deux ensembles  ordonnés inductifs. Une fonction croissante  $f$ : $A \rightarrow B$ est dite \textit{finitaire} si elle préserve  les suprema filtrants. Autrement dit, pour toute partie filtrante  $P$ de $A$, on a $f (\bigvee P) = \bigvee f_*(P)$. Montrer que les ensembles inductifs  et fonctions finitaire forment une catégorie.
+    \item Démontrer le théorème qui suit, en commençant par expliciter  le calcul de $\mu f$.\\
+
+
+
+        \textit{Théorème 1.1 (Kleene). Soit $A$ un ensemble inductif doté d’un plus petit élément
+qu’on notera $\bot$. Toute endofonction finitaire $f$ de $A$ a un plus petit point préfixe $\mu f$ 
+calculable par itération dénombrable à partir de $\bot$.}\\ 
+
+\textit{Indication:} vous inspirer du résultat étudié  lors des séances  précédentes  concernant les plus petits points fixes de fonctions  préservant les suites croissantes.
+\item Notons $\omega + 2$ pour l'ensemble ordonné $\omega + 1$ étendu avec un nouvel élément noté $\omega + 1$ strictement plus grand  que $\omega$. Donner un exemple de fonction croissante $f: \omega + 2 \rightarrow \omega + 2$ qui n'est  pas finitaire mais ayant  un plus petit  point préfixe.
+
 \end{enumerate}
 
 
@@ -115,7 +144,93 @@ de P.
 
 \textbf{Remarque} : Le deuxième sens de la preuve peut être fait juste avec la définition trouvé dans la question 1.
 
-        
+\item Montrons que $ P \subseteq A \wedge P \neq \emptyset \wedge \text{totalement ordonné } \Rightarrow$ filtrante 
+
+    Soit $x, y \in P$. On a $x \leq y$ ou $y \leq x$ car $P$ est totalement ordonné. 
+
+    Si $x \leq y$ on choisit $z = y$ sinon on choisit $z = x$. 
+
+    Dans les deux cas, on a bien $x \leq z$ et $y \leq z$.
+
+\textbf{Remarque} : toute chaine (séquence croissante ) dans $A$ est filtrante.
+
+\item \begin{enumerate}
+    \item $(\mathcal{P}(X), \subseteq )$ où $X$ est un ensemble quelconque. 
+        $P \subseteq \mathcal{P}(X) \qquad \bigvee P = \bigcup P$. 
+
+        \begin{align*}
+            \forall Q \in \mathcal{P}(X),\quad & (\forall \alpha \in P, \alpha \subseteq Q)\\ &\Rightarrow \bigcup P \subseteq Q
+        \end{align*}
+
+        Ce qu'on a démontrer dans les notes du cours. 
+
+        $(\forall i \in I, P_i \subseteq Q) \iff \bigcup_{i \in I}{P_i} \subseteq Q $
+
+    \item (\textbf{Rel}($X,X$), $\subseteq$) où $X$ est un ensemble quelconque. 
+
+        $P \subseteq \textbf{Rel}(X,X) $
+
+            $= \mathcal{P}(X^2)$\\ 
+            Cas particulier de la question précédente.
+    \item $(\emptyset, \emptyset) $
+
+        $\emptyset$ n'est pas filtrante, C'est bon.
+
+    \item $(A, \subseteq)$ avec $A$ un ensemble fini. 
+
+        On va montrer que $(A, \subseteq)$ est inductif. Soit $P$ une partie filtrante de $A$. Comme $A$ est fini, $P$ est fini. Donc, par la question 2, $P$ a un plus grand élément $x_0$. Donc c'est le supremum.
+
+    \item L'ensemble $\omega = \{0 \leq 1 \leq 2 \leq ...\}$ des entiers naturels muni de l'ordre usuel. 
+
+        Soit $P := \omega$. Il s'agit d'une partie non vide et totalement ordonnée, donc elle est filtrante (cf question 3). Cette partie n'a pas de majorant, donc a fortiori elle n'a pas de supremum. Donc $\omega$ n'est pas inductif. 
+
+        \textbf{Remarque} : $P \subseteq \omega$ filtrante $\iff P$ non-vide. 
+
+        \textbf{Remarque} : $\omega + 1 := \{ 0 \leq 1 \leq 2 \leq ... \leq \omega\}$ est un treillis complet (tous les sous-ensemble ont un supremum) et est donc inductif.
+
+\item $(\mathbb{Q}^\infty)$
+
+    $P := \{ x \in \mathbb{Q}^\infty | x^2 < 2 \} $
+
+    $P$ est non vide et totalement ordonnée, donc filtrante.
+
+    Mais $P$ n'a pas de supremum, car $\sqrt{2} \notin \mathbb{Q}$. 
+
+    Donc $\mathbb{Q}^\infty$ n'est pas inductif.
+
+\item Pas intéressante
+
+\item $(X, Id_X)$
+
+    Soit $P$ une partie filtrante de $(X,Id_X)$ . C'est nécessairement un singleton $\{x_0\}$. 
+
+    $P$ est non vide, et si 
+
+    \begin{align*}
+        \forall x, y \in P, \text{ on a } z \in P, \\ 
+        \text{tel que } x \leq z \text{ et } y \leq z\\ 
+        \text{Donc } x = y = z 
+    \end{align*}
+
+\textbf{Remarque} : Soit $X$ un ensemble et $A$ une ensemble ordonné, On a :
+\[ \textbf{Set}(X, A.Sup) \cong \textbf{Pos}(Disc(X), A)\]
+
+
+\item Soit $P$ une partie filtrante de $\mathbb{N}_{\bot}$, Une telle partie peut être :
+\begin{itemize}
+    \item $P = \{\bot\}$, alors $\bigvee P = \bot$
+    \item $P = \{n\}$, alors $\bigvee P = n$
+    \item $P = \{\bot, n\}$, alors $\bigvee P = n$
+\end{itemize} 
+
+\item $(X^\infty, \leq)$  où $X$ est un ensemble quelconque.
+    Soit $P$ une partie filtrante de $X^\infty$. 
+
+    \begin{itemize}
+        \item Si $P$ est finie, alors $\bigvee P = $ le plus grand élément de $P$.
+        \item SI $P$ est infini : $P$ prend le forme d'une suite de préfixe de longueur strictement croissante d'une unique suite infinie qui est son supremum.
+    \end{itemize}
+\end{enumerate}
 \end{enumerate}
 
 
